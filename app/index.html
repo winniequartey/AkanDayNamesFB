@@ -13,11 +13,11 @@
   <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
   <link rel="stylesheet" href="app.css"/>
   <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
-  <script src="bower_components/angular/angular.js" ></script>
+  <script src="bower_components/angular/angular.js"></script>
   <script src="app.js"></script>
-  <script src="js/controllers.js" ></script>
+  <script src="js/controllers.js"> </script>
 </head>
-<body >
+<body>
   <ul class="menu">
     <li><a href="#/view1">view1</a></li>
     <li><a href="#/view2">view2</a></li>
@@ -29,24 +29,33 @@
 
   <div ng-view></div>
 
- <!-- <div>Angular seed app: v<span app-version></span></div> -->
-	<div ng-controller="testCtrl" >
+  <!--<div>Angular seed app: v<span app-version></span></div>-->
+  <div ng-controller="testCtrl">
+	<!--<div class="students">-->
 		<div ng-repeat="student in students"> 
-			{{student.name}}: {{student.birthday}}, {{student.dayname}}
+			 {{student.dayname}}
 		</div>	
-	</div>
-  <form ng-submit="getDayName()"> 
-	Name: <input type="text" ng-model="name" placeholder="input name"/>
-	Birthday: <input type="date" ng-model="birthdayText" placeholder="input birth day"/>
-	<input class="btn-primary" type="submit" value="add">
-  </form>
-  
+	<!--</div>	-->
+ 
+<!--	  <form ng-submit="getDayName()"> 
+		Name: <input type="text" ng-model="name" placeholder="input name"/>
+		Birthday: <input type="date" ng-model="birthdayText" placeholder="input birth day"/>
+		<input class="btn-primary" type="submit" value="add">
+	  </form>-->
+		<form ng-submit="getDayName()"> 
+			<input class="btn-primary" type="submit" value="add">
+		</form>
+  </div>
   <div align="left">
-		  <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-		</fb:login-button>
-	<div>
-	<div id="status">
-	</div>
+		  <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="true"></div>
+               
+	</div> 
+   
+	<div id="status"></div>
+  <div id="birthday"></div>
+  <div id="gender"></div>
+	
+  
   
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>

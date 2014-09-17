@@ -1,15 +1,5 @@
 'use strict';
 
-// Declare app level module which depends on views, and components
-/*angular.module('myApp', [
-  'ngRoute',
-  'myApp.view1',
-  'myApp.view2',
-  'myApp.version'
-]).
-/*config(['$routeProvider', function($routeProvider) {
-  $routeProvider.otherwise({redirectTo: '/view1'});
-}]);*/
 
 function statusChangeCallback(response) {
     console.log('statusChangeCallback');
@@ -42,42 +32,47 @@ function statusChangeCallback(response) {
     });
   }
 
-window.fbAsyncInit = function() {
+	window.fbAsyncInit = function() {
         FB.init({
           appId      : '1484922191758460',
           xfbml      : true,
-          version    : 'v2.0'
+          version    : 'v2.1'
         });
 		
-	FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-  });	
+		FB.getLoginStatus(function(response) {
+			statusChangeCallback(response);
+		});	
 		
-      };
+	};
 
-      (function(d, s, id){
-         var js, fjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) {return;}
-         js = d.createElement(s); js.id = id;
-         js.src = "//connect.facebook.net/en_US/sdk.js";
-         fjs.parentNode.insertBefore(js, fjs);
-       }(document, 'script', 'facebook-jssdk'));
+    (function(d, s, id){
+			 var js, fjs = d.getElementsByTagName(s)[0];
+			 if (d.getElementById(id)) {return;}
+			 js = d.createElement(s); js.id = id;
+			 js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=1484922191758460&version=v2.1";
+			 fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
 	   
-	 function testAPI() {
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', function(response) {
-      console.log('Successful login for: ' + response.name);
-      document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!';
-    });
-  }
+	function testAPI() {
+		console.log('Welcome!  Fetching your information.... ');
+		FB.api('me?fields=id,name,gender,birthday,email', function(response) {
+		  console.log('Successful login for: ' + response.name);
+		   document.getElementById('status').innerHTML =
+			'Thanks for logging in, ' + response.name;
+			
+			document.getElementById('birthday').innerHTML = response.birthday;
+
+			document.getElementById('gender').innerHTML = response.gender;
+		});
+	}
 
 	/* make the API call */
-FB.api(
+/*FB.api(
     "/me/birthday",
     function (response) {
       if (response && !response.error) {
+		console.log('birthday: ' + response.birthday);
         /* handle the result */
-      }
+  /*    }
     }
-);
+);*/
