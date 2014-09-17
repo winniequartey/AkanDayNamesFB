@@ -28,3 +28,39 @@
   content: "";
   padding: 0;
 }
+
+.header {
+	background-color : blue;
+	color: white;
+	text-align:center;
+	padding:5px;
+}
+.leftnav {
+    line-height:30px;
+    background-color:#BDB76B;
+    height:300px;
+    width:100px;
+    float:left;
+    padding:5px;
+	color	:white
+}
+
+.footer {
+    background-color:blue;
+    color:white;
+    clear:both;
+    text-align:center;
+	padding:5px;	 	 
+}
+
+.mid{
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:50px;
+	width:800px;
+}
+
+.nameColor{
+	color:blue;
+}
+
